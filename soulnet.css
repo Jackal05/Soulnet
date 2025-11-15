@@ -812,6 +812,97 @@ footer {
     .form-row {
         flex-direction: column;
     }
+    
+    .toast {
+        min-width: 90%;
+        max-width: 90%;
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .toast-icon {
+        font-size: 2rem;
+    }
+    
+    .toast-title {
+        font-size: 1rem;
+    }
+    
+    .toast-message {
+        font-size: 0.85rem;
+    }
+}
+
+/* --- Notificación Toast --- */
+.toast {
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2c3e50 0%, #3a5064 100%);
+    color: var(--bg-secondary);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    min-width: 350px;
+    max-width: 500px;
+    transition: top 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toast.show {
+    top: 2rem;
+    animation: slideInBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideInBounce {
+    0% {
+        top: -200px;
+        opacity: 0;
+    }
+    70% {
+        top: 2.5rem;
+    }
+    100% {
+        top: 2rem;
+        opacity: 1;
+    }
+}
+
+.toast-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    animation: scaleIn 0.4s ease 0.3s backwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--bg-secondary);
+    font-family: 'Playfair Display', serif;
+}
+
+.toast-message {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
 }
 
 /* --- Modal de Agendamiento --- */

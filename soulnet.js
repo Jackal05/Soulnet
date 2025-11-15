@@ -179,6 +179,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // === 7. Notificación Toast ===
+    const toast = document.getElementById('toast');
+    
+    const mostrarNotificacion = () => {
+        toast.classList.add('show');
+        
+        // Ocultar después de 4 segundos
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4000);
+    };
+
     // Manejar envío del formulario
     formAgendamiento.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -190,12 +202,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Aquí puedes enviar los datos a un servidor o servicio
         console.log('Datos del agendamiento:', datos);
         
-        // Mostrar mensaje de éxito
-        alert('¡Gracias por tu solicitud! Nos pondremos en contacto contigo pronto para confirmar tu cita.');
-        
         // Limpiar formulario y cerrar modal
         formAgendamiento.reset();
         cerrarModal();
+        
+        // Mostrar notificación elegante
+        setTimeout(() => {
+            mostrarNotificacion();
+        }, 300);
     });
 
 });
