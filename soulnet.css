@@ -835,9 +835,9 @@ footer {
 /* --- Notificación Toast --- */
 .toast {
     position: fixed;
-    top: -200px;
+    top: 2rem;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-150px);
     background: linear-gradient(135deg, #2c3e50 0%, #3a5064 100%);
     color: var(--bg-secondary);
     padding: 1.5rem 2rem;
@@ -849,15 +849,15 @@ footer {
     gap: 1.25rem;
     min-width: 350px;
     max-width: 500px;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     opacity: 0;
-    pointer-events: none;
+    visibility: hidden;
 }
 
 .toast.show {
-    top: 2rem;
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
 }
 
 @keyframes slideInBounce {
