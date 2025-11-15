@@ -569,6 +569,10 @@ footer {
     padding: 4rem 2rem 2rem;
 }
 
+footer * {
+    color: inherit;
+}
+
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
