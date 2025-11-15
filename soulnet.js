@@ -179,21 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // === 7. Notificación Toast ===
-    const toast = document.getElementById('toast');
-    
-    const mostrarNotificacion = () => {
-        console.log('Mostrando notificación...'); // Debug
-        
-        // Agregar clase show
-        toast.classList.add('show');
-        
-        // Ocultar después de 5 segundos
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 5000);
-    };
-
     // Manejar envío del formulario
     formAgendamiento.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -215,7 +200,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Mostrar notificación después de un pequeño delay
         setTimeout(() => {
-            mostrarNotificacion();
+            const toast = document.getElementById('toast');
+            if (toast) {
+                console.log('Mostrando notificación...'); // Debug
+                toast.classList.add('show');
+                
+                // Ocultar después de 5 segundos
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 5000);
+            } else {
+                console.error('No se encontró el elemento toast');
+            }
         }, 500);
     });
 
