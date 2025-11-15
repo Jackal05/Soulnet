@@ -183,11 +183,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const toast = document.getElementById('toast');
     
     const mostrarNotificacion = () => {
+        // Asegurarse de que el toast esté visible
+        toast.style.display = 'flex';
+        
+        // Forzar reflow para que la animación funcione
+        void toast.offsetWidth;
+        
+        // Agregar clase show
         toast.classList.add('show');
         
         // Ocultar después de 4 segundos
         setTimeout(() => {
             toast.classList.remove('show');
+            // Ocultar completamente después de la animación
+            setTimeout(() => {
+                toast.style.display = '';
+            }, 500);
         }, 4000);
     };
 
@@ -202,14 +213,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Aquí puedes enviar los datos a un servidor o servicio
         console.log('Datos del agendamiento:', datos);
         
-        // Limpiar formulario y cerrar modal
+        // Limpiar formulario y cerrar modal primero
         formAgendamiento.reset();
         cerrarModal();
         
-        // Mostrar notificación elegante
+        // Mostrar notificación elegante después de cerrar el modal
         setTimeout(() => {
             mostrarNotificacion();
-        }, 300);
+        }, 400);
     });
 
 });
